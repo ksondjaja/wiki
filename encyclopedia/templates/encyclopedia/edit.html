@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block body %}
+    <span class="note">Click <a href="https://www.markdownguide.org/" title="This link will open in a new tab." target="_blank">here</a> for a guide on how to write in Markdown.</span><br>
+    <i>Here is a preview of the article:</i>
+    <div class="preview">
+    {% autoescape off %}
+        {{ contentmd }}
+    {% endautoescape %}
+    </div>
+    <br><br>        
+    <form action="{% url 'saveedit' page=page %}" method="post">
+        <i>Edit Article:</i><br>
+        {% csrf_token %}
+        <textarea name="newa" required>{{ content }}</textarea><br>
+        <button type="submit" formaction="{% url 'prevedit' page=page %}">Preview</button>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

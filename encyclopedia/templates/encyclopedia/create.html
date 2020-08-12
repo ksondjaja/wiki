@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <span class="note">Click <a href="https://www.markdownguide.org/" title="This link will open in a new tab." target="_blank">here</a> for a guide on how to write in Markdown.</span><br>
+    <h1>Create New Page</h1><br>
+    <form action="{% url 'save' %}" method="post">
+        {% csrf_token %}
+        <i>Title:</i> <input class="title" type="text" name="newt" maxlength="100" placeholder="Insert new wiki article title (maximum 100 characters)" required><br>
+        <textarea name="newa" required>Write your article in Markdown...</textarea><br>
+        <button type="submit" formaction="{% url 'preview' %}">Preview</button>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Saved
+{% endblock %}
+
+{% block body %}
+    <h1>Success!</h1>
+    <i>Your new article on <a href="{% url 'entry' page=page %}">{{ page }}</a> has been {{ message }}.</i>
+{% endblock %}

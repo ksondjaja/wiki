@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Preview
+{% endblock %}
+
+{% block body %}
+    <span class="note">Click <a href="https://www.markdownguide.org/" title="This link will open in a new tab." target="_blank">here</a> for a guide on how to write in Markdown.</span><br>
+    <h1>Error</h1>
+    <i>An entry for <a href="/wiki/{{ newtitle }}">{{ newtitle }}</a> already exists. Please change title or edit the existing article.</i>
+    <br><br><br>
+    <div class="preview">
+    {% autoescape off %}
+        {{ newarticlemd }}
+    {% endautoescape %}
+    </div>
+    <br>
+    <form action="{% url 'save' %}" method="post">
+        {% csrf_token %}
+        <i>Title:</i> <input class="title" type="text" name="newt" size="100" placeholder="Insert a different title" maxlength="100" required><br>
+        <textarea name="newa" required>{{ newarticle }}</textarea><br>
+        <button type="submit" formaction="{% url 'preview' %}">Preview</button>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

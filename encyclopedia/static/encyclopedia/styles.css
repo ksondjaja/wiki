@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+code {
+    white-space: pre;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+textarea {
+    height: 70vh;
+    width: 90%;
+}
+
+.main {
+    padding: 10px;
+    padding-left: 15px;
+}
+
+.note {
+    font-size: 10px;
+    float: right;
+    padding-right: 50px;
+}
+
+.editlink {
+    float: right;
+    padding-right: 50px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.preview{
+    padding-left: 50px;
+}
+
+.title{
+    margin-bottom: 5px;
+    width: 86.5%;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+    margin-bottom: 5px;
+}
+
+.searchbtn{
+    font-size: 12px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+}
