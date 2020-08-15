@@ -7,8 +7,8 @@
 {% block body %}
     <span class="note">Click <a href="https://www.markdownguide.org/" title="This link will open in a new tab." target="_blank">here</a> for a guide on how to write in Markdown.</span><br>
     <i>Here a preview of the article:</i>
-    <h1>{{ page }}</h1>
     <div class="preview">
+        <h1>{{ page }}</h1>
         {% autoescape off %}
             {{ contentmd }}
         {% endautoescape %}

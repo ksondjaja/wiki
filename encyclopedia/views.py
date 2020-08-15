@@ -6,6 +6,7 @@ from django.core.files.base import File, ContentFile
 from django.http import HttpResponse
 import markdown2
 import random
+import copy
 
 from . import util
 
@@ -43,7 +44,7 @@ def preview(request):
             newa = newarticle.cleaned_data["newa"]
             for filename in util.list_entries():
                 filename = str(filename)
-                if newt == filename:
+                if newt.lower() == filename.lower():
                     return render(request, "encyclopedia/preview2.html", {
                         "newtitle" : newt,
                         "newarticle" : newa,
@@ -65,7 +66,7 @@ def save(request):
             newa = newarticle.cleaned_data["newa"]
             for filename in util.list_entries():
                 filename = str(filename)
-                if newt == filename:
+                if newt.lower() == filename.lower():
                     return render(request, "encyclopedia/preview2.html", {
                         "newtitle" : newt,
                         "newarticle" : newa,
@@ -129,7 +130,7 @@ def search(request):
             for filename in util.list_entries():
                 filename = str(filename)
                 if q.lower() == filename.lower():
-                    return entry(request, q)
+                    return entry(request, filename)
                 elif q.lower() in filename.lower():
                     results.append(filename)
     if len(results) > 0:
